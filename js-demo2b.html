@@ -10,7 +10,33 @@
 <script>
     $(document).ready(function() {
        $("#btn").click(function(event){
+           $.getJSON("data.json", function(data) {
+               $("#tableTitle").text(data.title);
 
+               $("#showheading th").eq(0).text(data.heading);
+               $("#showheading th").eq(1).text(data.head1);
+               $("#showheading th").eq(2).text(data.head2);
+               $("#showheading th").eq(3).text(data.head3);
+               $("#showheading th").eq(4).text(data.head4);
+
+               $("#showcalories th").text(data.subheadcal);
+               $("#showcalories td").eq(0).text(data.cal1);
+               $("#showcalories td").eq(1).text(data.cal2);
+               $("#showcalories td").eq(2).text(data.cal3);
+               $("#showcalories td").eq(3).text(data.cal4);
+
+               $("#showfat th").text(data.subheadfat);
+               $("#showfat td").eq(0).text(data.fat1);
+               $("#showfat td").eq(1).text(data.fat2);
+               $("#showfat td").eq(2).text(data.fat3);
+               $("#showfat td").eq(3).text(data.fat4);
+
+               $("#showven th").text(data.subheadven);
+               $("#showven td").eq(0).text(data.ven1);
+               $("#showven td").eq(1).text(data.ven2);
+               $("#showven td").eq(2).text(data.ven3);
+               $("#showven td").eq(3).text(data.ven4);
+           });
        });
     });
  </script>
@@ -34,7 +60,7 @@
   <p>My Second paragraph.</p>
 
   <table>
-    <!--<caption></caption>
+    <caption id="tableTitle"></caption>
     <thead>
         <tr id="showheading">
             <th></th>
@@ -46,15 +72,15 @@
     </thead>
     <tbody>
         <tr id="showcalories">
+            <th></th>
             <td></td>
-            <td></td> 
             <td></td>
             <td></td>
             <td></td>
         </tr>
         <tr id="showfat">
+            <th></th>
             <td></td>
-            <td></td> 
             <td></td>
             <td></td>
             <td></td>
@@ -62,13 +88,13 @@
     </tbody>
     <tfoot>
         <tr id="showven">
-            <td></td>
+            <th></th>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
         </tr>
-    </tfoot>-->
+    </tfoot>
     </table>
 
     <input type = "button" id = "btn" value = "Load Data" style="margin-top:20px;" />
